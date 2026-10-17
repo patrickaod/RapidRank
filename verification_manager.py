@@ -6,6 +6,9 @@ class VerificationManager:
         self.pending_verifications = {}
 
     def start_verification(self, discord_id, username):
+
+        self.expire_verification(discord_id)
+
         # Prevent duplicate active verifications.
         if discord_id in self.pending_verifications:
             return None
