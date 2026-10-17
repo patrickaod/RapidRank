@@ -1,7 +1,6 @@
 import secrets
 import time
 
-
 class VerificationManager:
     def __init__(self):
         self.pending_verifications = {}
@@ -25,4 +24,17 @@ class VerificationManager:
         self.pending_verifications[discord_id] = verification
 
         return verification
+
+    def expire_verification(self, discord_id):
+        verification = self.pending_verifications.get(discord_id)
+
+        if verification is None:
+            return False
+
+        if time.time() >= verification["expires_at"]:
+            del self.pending_verifications[discord_id]
+            return True
+
+        return False
+
 
