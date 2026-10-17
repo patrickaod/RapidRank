@@ -53,3 +53,23 @@ if verification is None:
     print("You already have a pending verification.")
 else:
     print(verification["code"])
+
+
+# Test 4 
+print("Test4")
+
+verification = manager.start_verification(
+    discord_id = 1234,
+    username = "exampleuser4",
+)
+
+manager.pending_verifications[discord_id]["expires_at"] = (
+    time.time() - 1
+)
+
+retry = manager.start_verification(
+    discord_id = 1234,
+    username = "exampleuser4",
+)
+
+print(retry)
