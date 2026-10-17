@@ -36,9 +36,20 @@ second = manager.start_verification(
     discord_id,
     "exampleuser",
 )
+
+print(first)
+print(second)
+
+# Test 3
+print("Test3")
+
+
+verification = manager.start_verification(
+    discord_id,
+    "exampleuser",
+)
+
 if verification is None:
     print("You already have a pending verification.")
 else:
     print(verification["code"])
-print(first)
-print(second)
