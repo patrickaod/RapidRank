@@ -1,4 +1,6 @@
 
+import time
+
 from verification_manager import VerificationManager
 
 manager = VerificationManager()
@@ -8,4 +10,11 @@ verification = manager.start_verification(
     username="exampleuser",
 )
 
-print(verification)
+# Force the deadline into the past.
+verification["expires_at"] = time.time() - 1
+
+expired = manager.expire_verification(123456789)
+
+print(expired)
+print(manager.pending_verifications)
+
