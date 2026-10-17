@@ -63,7 +63,7 @@ verification = manager.start_verification(
     username = "exampleuser4",
 )
 
-manager.pending_verifications[discord_id]["expires_at"] = (
+manager.pending_verifications[1234]["expires_at"] = (
     time.time() - 1
 )
 
