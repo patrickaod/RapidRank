@@ -18,3 +18,19 @@ expired = manager.expire_verification(123456789)
 print(expired)
 print(manager.pending_verifications)
 
+# Test 2
+
+discord_id = 123456789
+
+first = manager.start_verification(
+    discord_id,
+    "exampleuser",
+)
+
+second = manager.start_verification(
+    discord_id,
+    "exampleuser",
+)
+
+print(first)
+print(second)
