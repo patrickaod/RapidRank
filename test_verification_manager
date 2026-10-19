@@ -95,3 +95,28 @@ second = manager.start_verification(
 print("First:", first)
 print("Second:", second)
 print("Stored:", manager.pending_verifications[1234])
+
+
+# Test 6
+
+print("Test6")
+
+manager = VerificationManager()
+
+manager.start_verification(
+    discord_id=1234,
+    username="exampleuser",
+)
+
+print(manager.get_due_verifications())
+
+
+# Test 7
+
+print("Test7")
+
+manager.pending_verifications[1234]["next_check_at"] = (
+    time.time() - 1
+)
+
+print(manager.get_due_verifications())
