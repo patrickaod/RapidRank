@@ -73,3 +73,25 @@ retry = manager.start_verification(
 )
 
 print(retry)
+
+# Test 5
+
+print("Test5")
+
+from verification_manager import VerificationManager
+
+manager = VerificationManager()
+
+first = manager.start_verification(
+    discord_id=1234,
+    username="exampleuser",
+)
+
+second = manager.start_verification(
+    discord_id=1234,
+    username="exampleuser",
+)
+
+print("First:", first)
+print("Second:", second)
+print("Stored:", manager.pending_verifications[1234])
