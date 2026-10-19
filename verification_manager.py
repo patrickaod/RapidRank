@@ -40,4 +40,16 @@ class VerificationManager:
 
         return False
 
+    def get_due_verifications(self):
+        now = time.time()
+        due = []
+
+        for discord_id, verification in self.pending_verifications.items():
+            if now >= verification["expires_at"]:
+                continue
+
+            if now >= verification["next_check_at"]:
+                due.append((discord_id, verification))
+
+        return due
 
